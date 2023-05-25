@@ -36,6 +36,7 @@ export interface returnedDataType {
 // Login
 function checkForValidUserCompairMailPass(email: string, password: string, usersData: Array<userCredentialType>) {
     const userDataToSetInLocalStorage = usersData.find((item: userCredentialType) => item.email === email && item.password === password)
+    console.log("reached", userDataToSetInLocalStorage)
     if (userDataToSetInLocalStorage) {
         if (window) {
             localStorage.setItem("userCredentials", JSON.stringify(userDataToSetInLocalStorage))
@@ -66,7 +67,7 @@ export async function callApiForGettingUserData(email: string, password: string,
 
 
 
-console.log("bas : " ,API_BASE_PATH+"/api/messages");
+console.log("bas : ", API_BASE_PATH + "/api/messages");
 // chat page api calling
 export async function callApiToGetAllChat() {
     const res = await fetch(`${API_BASE_PATH}/api/messages`, {
