@@ -47,12 +47,13 @@ const Navbar = () => {
                     {isLoggedInWithData ?
                         <div className='cursor-pointer relative group uppercase border text-gray-200 bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center'>
                             {isLoggedInWithData.fullname.slice(0, 1)}
-                            <div className='bg-white px-8 py-4 cursor-default space-y-3 border-t mt-[11.8rem] shadow-2xl mr-28 text-gray-800 text-sm normal-case absolute invisible -translate-y-2 group-hover:duration-300 group-hover:visible group-hover:translate-y-0'>
+                            <div className='bg-white px-8 py-4 cursor-default space-y-3 border-t mt-[12.8rem] shadow-2xl mr-28 text-gray-800 text-sm normal-case absolute invisible -translate-y-2 group-hover:duration-300 group-hover:visible group-hover:translate-y-0'>
                                 <h2><b>Email: </b> {isLoggedInWithData.email}</h2>
                                 <p><b>WT ID: </b> {isLoggedInWithData.uniqueid}</p>
                                 <button onClick={handleLogOut} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-purple-500">
                                     Sign out
                                 </button>
+                                <p>Version 1.0</p>
                             </div>
                         </div>
                         :

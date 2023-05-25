@@ -138,6 +138,25 @@ const ChatApp = () => {
                         }
                     </div>
                 )}
+                {localStorageDataState && (
+                    <div>
+                        {allChats && fetchAllUserss &&
+                            allChats.map((item: allChatsType, index: number) => {
+                                let alldataOfSingleUser: userCredentialType | undefined =
+                                    fetchAllUserss.find((subItem: userCredentialType) => subItem.uniqueid === item.senderid);
+                                let idOwner: boolean = localStorageDataState.uniqueid === item.senderid;
+                                if (item.receiverid === localStorageDataState.uniqueid || item.senderid === localStorageDataState.uniqueid) {
+                                    return (
+                                        <Message alldataOfSingleUser={alldataOfSingleUser} key={index} name={item.senderid} message={item.message} id={item.senderid} isOwner={idOwner} />
+                                    )
+                                } else {
+                                    return ""
+                                }
+                            }
+                            )
+                        }
+                    </div>
+                )}
 
                 {/* <div className='fixed bottom-10 left-10 right-10 flex items-center justify-center gap-5'>
                     <input type='text' className='inputField rounded-full border-purple-600' />
